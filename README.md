@@ -11,7 +11,7 @@ A basic Ionic client web application which consumes the RestAPI Backend. [Covere
 ## Solution
 
 ### URL
-    http://image-filter-eseidinger-dev.eu-central-1.elasticbeanstalk.com/
+http://image-filter-eseidinger-dev.eu-central-1.elasticbeanstalk.com/
 
 ### Screenshot
 
