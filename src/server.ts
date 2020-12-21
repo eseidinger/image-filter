@@ -33,22 +33,22 @@ var validUrl = require('valid-url');
 
   //! END @TODO1
   
-  app.get("/filteredimage", async (req, res) => {
-    let imageUrl = req.query.image_url;
+  app.get("/filteredimage", async (req: express.Request, res: express.Response) => {
+    let imageUrl: string = req.query.image_url;
 
     if (!validUrl.isUri(imageUrl)) {
       return res.status(400).send("not a valid uri")
     }
 
-    let filteredImagePath = await filterImageFromURL(imageUrl);
-    res.sendFile(filteredImagePath, (err) => {
+    let filteredImagePath: string = await filterImageFromURL(imageUrl);
+    res.status(200).sendFile(filteredImagePath, (err) => {
       deleteLocalFiles([filteredImagePath]);
     })
   });
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req, res ) => {
+  app.get( "/", async (req: express.Request, res: express.Response) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
   
